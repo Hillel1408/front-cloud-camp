@@ -12,3 +12,12 @@ body {
     margin: 0 auto;
     padding: 0 20px;
 }
+.title {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 26 / 20 * 100%;
+    color: #333333;
+    @media (max-width: 490px) {
+        font-size: 16px;
+    }
+}

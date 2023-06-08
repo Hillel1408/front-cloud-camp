@@ -1,0 +1,42 @@
+.succes,
+.error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    &Icon {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+.succesIcon {
+    background: rgba(5, 174, 113, 0.15);
+}
+.error {
+    position: relative;
+    h2 {
+        align-self: flex-start;
+    }
+    & > a {
+        align-self: flex-end;
+    }
+    &Icon {
+        background: rgba(232, 78, 88, 0.15);
+    }
+    &Close {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.04);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

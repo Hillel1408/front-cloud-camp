@@ -2,7 +2,6 @@ import styles from './Main.module.scss';
 import stylesInput from '../../components/Input/Input.module.scss';
 import { Button } from '../../components/Button';
 import { Label } from '../../components/Label';
-import { Modal } from '../../components/Modal';
 
 function Main() {
     return (
@@ -12,7 +11,7 @@ function Main() {
                     <img src="/avatar.jpg" alt="" />
                 </div>
                 <div className={styles.profileFlex}>
-                    <h1>Дараган Максим</h1>
+                    <h1 className="title">Дараган Максим</h1>
                     <ul>
                         <li>
                             <img src="/icon-1.svg" alt="" />
@@ -60,7 +59,6 @@ function Main() {
                     id="button-start"
                 />
             </form>
-            <Modal active={false} />
         </div>
     );
 }
