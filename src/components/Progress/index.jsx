@@ -1,17 +1,18 @@
 import classNames from 'classnames';
 import styles from './Progress.module.scss';
 
-function Progress({ arr }) {
+function Progress({ count, active }) {
     return (
         <div className={styles.block}>
-            {arr.map((item, index) => (
+            {new Array(count).fill('').map((item, index) => (
                 <span
                     className={classNames(
                         styles.blockItem,
-                        item && styles.blockItemActive
+                        index < active && styles.blockItemActive
                     )}
                 >
-                    {item && <i></i>}
+                    {active === index + 1 && <i></i>}
+                    {index < active - 1 && <img src="/icon-5.svg" alt="" />}
                 </span>
             ))}
         </div>
