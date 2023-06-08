@@ -3,8 +3,10 @@
 
 body {
     background-color: #f4f4f5;
+    &.lock {
+        overflow: hidden;
+    }
 }
-
 .container {
     max-width: 900px;
     margin: 0 auto;
