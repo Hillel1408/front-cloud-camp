@@ -5,7 +5,7 @@ import styles from './Step3.module.scss';
 function Step3() {
     return (
         <div>
-            <Modal active={true}>
+            <Modal active={false}>
                 <div className={styles.succes}>
                     <h2 className="title">Форма успешно отправлена</h2>
                     <div className={styles.succesIcon}>
@@ -19,7 +19,7 @@ function Step3() {
                     />
                 </div>
             </Modal>
-            <Modal active={false}>
+            <Modal active={true}>
                 <div className={styles.error}>
                     <div className={styles.errorClose}>
                         <img src="/icon-4.svg" alt="" />
