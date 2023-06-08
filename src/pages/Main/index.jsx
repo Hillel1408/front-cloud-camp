@@ -2,6 +2,7 @@ import styles from './Main.module.scss';
 import stylesInput from '../../components/Input/Input.module.scss';
 import { Button } from '../../components/Button';
 import { Label } from '../../components/Label';
+import { Modal } from '../../components/Modal';
 
 function Main() {
     return (
@@ -59,6 +60,7 @@ function Main() {
                     id="button-start"
                 />
             </form>
+            <Modal active={false} />
         </div>
     );
 }

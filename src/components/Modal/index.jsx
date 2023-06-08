@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import classNames from 'classnames';
 import styles from './Modal.module.scss';
 
-function Modal({ active, setActive }) {
+function Modal({ active, setActive, children }) {
     const closeModal = () => {
         setActive(false);
         document.body.classList.remove('lock');
@@ -20,7 +20,32 @@ function Modal({ active, setActive }) {
 
     active && document.body.classList.add('lock');
 
-    return <div></div>;
+    return (
+        <div
+            className={
+                active
+                    ? classNames(styles.modal, styles.modalOpen)
+                    : styles.modal
+            }
+            onClick={() => closeModal()}
+        >
+            <div className={styles.modalBody}>
+                <div
+                    onClick={(e) => e.stopPropagation()}
+                    className={
+                        active
+                            ? classNames(
+                                  styles.modalContent,
+                                  styles.modalContentOpen
+                              )
+                            : styles.modalContent
+                    }
+                >
+                    <div className={styles.modalBlock}>{children}</div>
+                </div>
+            </div>
+        </div>
+    );
 }
 
 export { Modal };
