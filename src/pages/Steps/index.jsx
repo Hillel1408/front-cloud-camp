@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { Step1 } from '../../components/Step1';
 
 function Steps() {
-    const count = 4; //количество форм
+    const count = 3; //количество форм
     const [active, setActive] = useState(1); //активная форма
 
     return (

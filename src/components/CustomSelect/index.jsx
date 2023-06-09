@@ -18,6 +18,8 @@ function CustomSelect(props) {
             styles={customStyles}
             options={props.options}
             placeholder={props.placeholder}
+            value={props.value}
+            onChange={props.setValue}
         />
     );
 }

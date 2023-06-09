@@ -35,7 +35,7 @@ function Main() {
                     </ul>
                 </div>
             </div>
-            <form action="#">
+            <form>
                 <Label>
                     Номер телефона
                     <input
@@ -57,7 +57,7 @@ function Main() {
                     bg="#5558FA"
                     color="white"
                     id="button-start"
-                    href="step-1"
+                    href="/steps"
                 />
             </form>
         </div>

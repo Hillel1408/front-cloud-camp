@@ -6,6 +6,7 @@ import stylesInput from '../Input/Input.module.scss';
 import styles from './Step1.module.scss';
 
 function Step1({}) {
+    const [value, setValue] = '';
     const options = [
         {
             value: 'man',
@@ -112,7 +113,12 @@ function Step1({}) {
             <div>
                 <Label>
                     Sex
-                    <CustomSelect options={options} placeholder="Не выбрано" />
+                    <CustomSelect
+                        options={options}
+                        placeholder="Не выбрано"
+                        value={value}
+                        setValue={(e) => setValue(e.value)}
+                    />
                 </Label>
             </div>
             <div className="buttons">
@@ -121,6 +127,7 @@ function Step1({}) {
                     bg="white"
                     color="#5558FA"
                     id="button-back"
+                    href="/"
                 />
                 <Button
                     text="Далее"
