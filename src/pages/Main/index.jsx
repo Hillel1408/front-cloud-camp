@@ -57,6 +57,7 @@ function Main() {
                     bg="#5558FA"
                     color="white"
                     id="button-start"
+                    href="step-1"
                 />
             </form>
         </div>

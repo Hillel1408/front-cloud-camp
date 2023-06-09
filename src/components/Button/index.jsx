@@ -1,15 +1,17 @@
+import { NavLink } from 'react-router-dom';
 import styles from './Button.module.scss';
 
-function Button({ text, color, bg, id }) {
+function Button({ text, color, bg, id, href, type }) {
     return (
-        <a
+        <button
+            href={href}
             id={id}
             className={styles.btn}
             style={{ backgroundColor: `${bg}`, color: `${color}` }}
-            href="/"
+            type={type && type}
         >
             {text}
-        </a>
+        </button>
     );
 }
 

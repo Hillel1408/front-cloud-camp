@@ -1,10 +1,20 @@
 import { Button } from '../../components/Button';
 import { Modal } from '../../components/Modal';
-import styles from './Step3.module.scss';
+import styles from './Steps.module.scss';
+import { Progress } from '../../components/Progress';
+import { useState } from 'react';
+import { Step1 } from '../../components/Step1';
 
-function Step3() {
+function Steps() {
+    const count = 4; //количество форм
+    const [active, setActive] = useState(1); //активная форма
+
     return (
-        <div>
+        <>
+            <div className={styles.block}>
+                <Progress count={count} active={active} />
+                <Step1 />
+            </div>
             <Modal active={false}>
                 <div className={styles.succes}>
                     <h2 className="title">Форма успешно отправлена</h2>
@@ -19,7 +29,7 @@ function Step3() {
                     />
                 </div>
             </Modal>
-            <Modal active={true}>
+            <Modal active={false}>
                 <div className={styles.error}>
                     <div className={styles.errorClose}>
                         <img src="/icon-4.svg" alt="" />
@@ -36,8 +46,8 @@ function Step3() {
                     />
                 </div>
             </Modal>
-        </div>
+        </>
     );
 }
 
-export { Step3 };
+export { Steps };

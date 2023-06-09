@@ -5,6 +5,7 @@
     border-radius: 8px;
     display: flex;
     justify-content: space-between;
+    counter-reset: progress 0;
     &Item {
         display: inline-flex;
         width: 16px;
@@ -12,16 +13,29 @@
         border-radius: 50%;
         background-color: #a6a6a6;
         transform: translateY(-25%);
+        counter-increment: progress 1;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        &::before {
+            content: counter(progress);
+            font-size: 14px;
+            line-height: 20px;
+            color: #666666;
+            position: absolute;
+            top: 22px;
+        }
         &Active {
             background-color: #5558fa;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             i {
                 width: 3.2px;
                 height: 3.2px;
                 border-radius: 50%;
                 background-color: white;
+            }
+            &::before {
+                font-weight: 600;
+                color: #5558fa;
             }
         }
     }
