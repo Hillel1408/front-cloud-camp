@@ -24,4 +24,11 @@ body {
 .buttons {
     display: flex;
     justify-content: space-between;
+    margin-top: 64px;
+}
+.error {
+    font-size: 12px;
+    line-height: 16px;
+    color: red;
+    margin-top: 8px;
 }
