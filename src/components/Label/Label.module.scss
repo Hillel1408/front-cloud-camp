@@ -6,6 +6,7 @@
     flex-direction: column;
     gap: 8px;
     width: 400px;
+    position: relative;
     @media (max-width: 490px) {
         width: 100%;
     }

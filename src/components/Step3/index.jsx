@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { Label } from '../Label';
 import { Button } from '../../components/Button';
@@ -10,6 +9,7 @@ function Step3({ active }) {
     const {
         register,
         handleSubmit,
+        watch,
         formState: { errors },
     } = useForm({
         defaultValues: {
@@ -29,7 +29,7 @@ function Step3({ active }) {
             style={active === 3 ? { display: 'block' } : { display: 'none' }}
         >
             <div>
-                <Label>
+                <Label width="100%">
                     About
                     <textarea
                         className={classNames(stylesInput.input, 'textarea')}
@@ -43,6 +43,9 @@ function Step3({ active }) {
                             },
                         })}
                     />
+                    <span className={styles.counter}>
+                        {watch('about').length} / 200
+                    </span>
                 </Label>
                 <p className="error">
                     {errors?.about && errors?.about?.message}
