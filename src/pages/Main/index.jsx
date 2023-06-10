@@ -3,6 +3,7 @@ import stylesInput from '../../components/Input/Input.module.scss';
 import { Button } from '../../components/Button';
 import { Label } from '../../components/Label';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
 function Main() {
     const {
@@ -17,8 +18,11 @@ function Main() {
         mode: 'onChange',
     });
 
+    const navigate = useNavigate();
+
     const onSubmit = (values) => {
         console.log(values);
+        navigate('/steps');
     };
 
     return (

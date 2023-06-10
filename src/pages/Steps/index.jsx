@@ -4,6 +4,7 @@ import styles from './Steps.module.scss';
 import { Progress } from '../../components/Progress';
 import { useState } from 'react';
 import { Step1 } from '../../components/Step1';
+import { Step3 } from '../../components/Step3';
 
 function Steps() {
     const count = 3; //количество форм
@@ -13,7 +14,8 @@ function Steps() {
         <>
             <div className={styles.block}>
                 <Progress count={count} active={active} />
-                <Step1 />
+                <Step1 active={active} setActive={setActive} />
+                <Step3 active={active} setActive={setActive} />
             </div>
             <Modal active={false}>
                 <div className={styles.succes}>

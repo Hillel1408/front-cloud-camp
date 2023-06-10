@@ -6,7 +6,7 @@ import stylesInput from '../Input/Input.module.scss';
 import styles from './Step1.module.scss';
 import { useState } from 'react';
 
-function Step1() {
+function Step1({ active, setActive }) {
     const [value, setValue] = useState('');
     const options = [
         {
@@ -36,10 +36,15 @@ function Step1() {
 
     const onSubmit = (values) => {
         console.log(values);
+        setActive(3);
     };
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+        <form
+            onSubmit={handleSubmit(onSubmit)}
+            className={styles.form}
+            style={active === 1 ? { display: 'block' } : { display: 'none' }}
+        >
             <div>
                 <Label>
                     Nickname
