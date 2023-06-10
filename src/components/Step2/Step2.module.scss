@@ -1,0 +1,17 @@
+.radioGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #333333;
+    label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    input {
+        width: 16px;
+        height: 16px;
+    }
+}
