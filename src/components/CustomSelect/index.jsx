@@ -19,7 +19,7 @@ function CustomSelect(props) {
             options={props.options}
             placeholder={props.placeholder}
             value={props.value}
-            onChange={props.setValue}
+            onChange={props.onChange}
             getOptionLabel={props.getOptionLabel}
             id={props.id}
         />

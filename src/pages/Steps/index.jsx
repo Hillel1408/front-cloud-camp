@@ -8,7 +8,7 @@ import { Step3 } from '../../components/Step3';
 
 function Steps() {
     const count = 3; //количество форм
-    const [active, setActive] = useState(3); //активная форма
+    const [active, setActive] = useState(1); //активная форма
 
     return (
         <>

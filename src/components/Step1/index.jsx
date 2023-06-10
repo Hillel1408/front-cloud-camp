@@ -1,13 +1,11 @@
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { Label } from '../Label';
 import { Button } from '../../components/Button';
 import { CustomSelect } from '../CustomSelect';
 import stylesInput from '../Input/Input.module.scss';
 import styles from './Step1.module.scss';
-import { useState } from 'react';
 
 function Step1({ active, setActive }) {
-    const [value, setValue] = useState('');
     const options = [
         {
             value: 'man',
@@ -24,19 +22,21 @@ function Step1({ active, setActive }) {
     const {
         register,
         handleSubmit,
+        control,
         formState: { errors },
     } = useForm({
         defaultValues: {
             nickname: '',
             name: '',
             sername: '',
+            sex: '',
         },
         mode: 'onChange',
     });
 
     const onSubmit = (values) => {
         console.log(values);
-        setActive(3);
+        //setActive(3);
     };
 
     return (
@@ -121,18 +121,26 @@ function Step1({ active, setActive }) {
             <div>
                 <Label>
                     Sex
-                    <CustomSelect
-                        options={options}
-                        placeholder="Не выбрано"
-                        value={value}
-                        setValue={setValue}
-                        id="field-sex"
-                        getOptionLabel={(props) => {
-                            const { id, label } = props;
-                            return <div id={id}>{label}</div>;
-                        }}
+                    <Controller
+                        name="sex"
+                        control={control}
+                        render={({ field: { onChange, value } }) => (
+                            <CustomSelect
+                                options={options}
+                                placeholder="Не выбрано"
+                                value={options.find((c) => c.value === value)}
+                                onChange={(val) => onChange(val.value)}
+                                id="field-sex"
+                                getOptionLabel={(props) => {
+                                    const { id, label } = props;
+                                    return <div id={id}>{label}</div>;
+                                }}
+                            />
+                        )}
+                        rules={{ required: 'Поле обязательно к заполнению' }}
                     />
                 </Label>
+                <p className="error">{errors?.sex && errors?.sex?.message}</p>
             </div>
             <div className="buttons">
                 <Button
