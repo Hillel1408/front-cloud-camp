@@ -36,7 +36,7 @@ function Step1({ active, setActive }) {
 
     const onSubmit = (values) => {
         console.log(values);
-        //setActive(3);
+        setActive(2);
     };
 
     return (
