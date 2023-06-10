@@ -4,6 +4,7 @@ import { Button } from '../../components/Button';
 import { Label } from '../../components/Label';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import InputMask from 'react-input-mask';
 
 function Main() {
     const {
@@ -12,8 +13,8 @@ function Main() {
         formState: { errors },
     } = useForm({
         defaultValues: {
-            tel: '',
             email: '',
+            tel: '',
         },
         mode: 'onChange',
     });
@@ -60,9 +61,11 @@ function Main() {
                 <div>
                     <Label>
                         Номер телефона
-                        <input
+                        <InputMask
                             className={stylesInput.input}
-                            placeholder="+7 952 422-62-44"
+                            mask={'+7 (999) 999-99-99'}
+                            alwaysShowMask={false}
+                            placeholder="+7 999 999-99-99"
                             {...register('tel', {
                                 required: 'Поле обязательно к заполнению',
                             })}
@@ -77,7 +80,7 @@ function Main() {
                         Email
                         <input
                             className={stylesInput.input}
-                            placeholder="etemax@bk.ru"
+                            placeholder="tim.jennings@example.com"
                             {...register('email', {
                                 required: 'Поле обязательно к заполнению',
                                 pattern: {
