@@ -13,8 +13,8 @@ function Main() {
         formState: { errors },
     } = useForm({
         defaultValues: {
-            email: '',
-            tel: '',
+            email: 'etemax@bk.ru',
+            tel: '+7 (952) 422-62-44',
         },
         mode: 'onChange',
     });
