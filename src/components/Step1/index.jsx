@@ -4,17 +4,20 @@ import { Button } from '../../components/Button';
 import { CustomSelect } from '../CustomSelect';
 import stylesInput from '../Input/Input.module.scss';
 import styles from './Step1.module.scss';
+import { useState } from 'react';
 
-function Step1({}) {
-    const [value, setValue] = '';
+function Step1() {
+    const [value, setValue] = useState('');
     const options = [
         {
             value: 'man',
             label: 'man',
+            id: 'field-sex-option-man',
         },
         {
             value: 'woman',
             label: 'woman',
+            id: 'field-sex-option-woman',
         },
     ];
 
@@ -117,7 +120,12 @@ function Step1({}) {
                         options={options}
                         placeholder="Не выбрано"
                         value={value}
-                        setValue={(e) => setValue(e.value)}
+                        setValue={setValue}
+                        id="field-sex"
+                        getOptionLabel={(props) => {
+                            const { id, label } = props;
+                            return <div id={id}>{label}</div>;
+                        }}
                     />
                 </Label>
             </div>
