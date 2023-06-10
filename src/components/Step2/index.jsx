@@ -11,6 +11,7 @@ function Step2({ active, setActive }) {
     } = useForm({
         defaultValues: {
             radio: '1',
+            checkbox: '',
         },
         mode: 'onChange',
     });
@@ -22,9 +23,40 @@ function Step2({ active, setActive }) {
     return (
         <form
             onSubmit={handleSubmit(onSubmit)}
-            style={active === 2 ? { display: 'block' } : { display: 'none' }}
+            className={styles.form}
+            style={active === 2 ? { display: 'flex' } : { display: 'none' }}
         >
-            <div className={styles.radioGroup}>
+            <div className={styles.formGroup}>
+                Checkbox group
+                <label>
+                    <input
+                        id="field-checkbox-group-option-1"
+                        type="checkbox"
+                        value="1"
+                        {...register('checkbox')}
+                    />
+                    1
+                </label>
+                <label>
+                    <input
+                        id="field-checkbox-group-option-2"
+                        type="checkbox"
+                        value="2"
+                        {...register('checkbox')}
+                    />
+                    2
+                </label>
+                <label>
+                    <input
+                        id="field-checkbox-group-option-3"
+                        type="checkbox"
+                        value="3"
+                        {...register('checkbox')}
+                    />
+                    3
+                </label>
+            </div>
+            <div className={styles.formGroup}>
                 Radio group
                 <label>
                     <input

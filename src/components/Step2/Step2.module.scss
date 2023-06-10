@@ -1,4 +1,4 @@
-.radioGroup {
+.formGroup {
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -14,4 +14,9 @@
         width: 16px;
         height: 16px;
     }
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }

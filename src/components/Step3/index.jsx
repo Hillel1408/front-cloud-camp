@@ -26,7 +26,7 @@ function Step3({ active }) {
         <form
             onSubmit={handleSubmit(onSubmit)}
             className={styles.form}
-            style={active === 3 ? { display: 'block' } : { display: 'none' }}
+            style={active === 3 ? { display: 'flex' } : { display: 'none' }}
         >
             <div>
                 <Label width="100%">
