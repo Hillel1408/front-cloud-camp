@@ -10,7 +10,8 @@
         align-items: center;
         gap: 10px;
     }
-    input {
+    input[type='checkbox'],
+    input[type='radio'] {
         width: 16px;
         height: 16px;
     }
@@ -19,4 +20,21 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
+}
+.advantages {
+    display: flex;
+    gap: 18px;
+    input[type='text'] {
+        width: 300px;
+    }
+    button {
+        background-color: transparent;
+    }
+}
+.addBtn {
+    width: 44px;
+    height: 44px;
+    border: 1.5px solid #5558fa;
+    border-radius: 4px;
+    background-color: transparent;
 }
