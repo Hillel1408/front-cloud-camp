@@ -5,7 +5,6 @@ function Button({ text, color, bg, id, href, type }) {
     const navigate = useNavigate();
 
     const clickHandler = (e) => {
-        e.preventDefault();
         navigate(href);
     };
 

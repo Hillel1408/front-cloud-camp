@@ -35,6 +35,7 @@ function Step2({ active, setActive }) {
 
     const onSubmit = (values) => {
         console.log(values);
+        setActive(3);
     };
 
     return (
