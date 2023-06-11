@@ -29,7 +29,7 @@ function Step1({ active, setActive }) {
             nickname: '',
             name: '',
             sername: '',
-            sex: '',
+            sex: options[0],
         },
         mode: 'onChange',
     });
@@ -131,6 +131,7 @@ function Step1({ active, setActive }) {
                                 value={options.find((c) => c.value === value)}
                                 onChange={(val) => onChange(val.value)}
                                 id="field-sex"
+                                defaultValue={options[0]}
                                 getOptionLabel={(props) => {
                                     const { id, label } = props;
                                     return <div id={id}>{label}</div>;

@@ -22,6 +22,7 @@ function CustomSelect(props) {
             onChange={props.onChange}
             getOptionLabel={props.getOptionLabel}
             id={props.id}
+            defaultValue={props.defaultValue}
         />
     );
 }
