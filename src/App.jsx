@@ -8,8 +8,8 @@ function App() {
         <Router basename="front-cloud-camp">
             <main className="container">
                 <Routes>
-                    <Route exact path="/" element={<Main />} />
-                    <Route exact path="/steps" element={<Steps />} />
+                    <Route path="/" element={<Main />} />
+                    <Route path="/steps" element={<Steps />} />
                 </Routes>
             </main>
         </Router>

@@ -6,8 +6,10 @@ import stylesInput from '../Input/Input.module.scss';
 import styles from './Step1.module.scss';
 import { useDispatch } from 'react-redux';
 import { addForm } from '../../store/formsSlice';
+import { useSelector } from 'react-redux';
 
 function Step1({ active, setActive }) {
+    const forms = useSelector((state) => state.forms.forms);
     const dispatch = useDispatch();
 
     const options = [
@@ -30,10 +32,10 @@ function Step1({ active, setActive }) {
         formState: { errors },
     } = useForm({
         defaultValues: {
-            nickname: '',
-            name: '',
-            sername: '',
-            sex: options[0],
+            nickname: forms.nickname,
+            name: forms.name,
+            sername: forms.sername,
+            sex: forms.sex,
         },
         mode: 'onChange',
     });

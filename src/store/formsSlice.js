@@ -4,7 +4,14 @@ import axios from '../axios';
 const formsSlice = createSlice({
     name: 'forms',
     initialState: {
-        forms: {},
+        forms: {
+            email: 'etemax@bk.ru',
+            tel: '+7 (952) 422-62-44',
+            nickname: '',
+            name: '',
+            sername: '',
+            sex: '',
+        },
     },
     reducers: {
         addForm(state, action) {

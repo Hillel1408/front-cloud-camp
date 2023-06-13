@@ -7,8 +7,10 @@ import { useNavigate } from 'react-router-dom';
 import InputMask from 'react-input-mask';
 import { useDispatch } from 'react-redux';
 import { addForm } from '../../store/formsSlice';
+import { useSelector } from 'react-redux';
 
 function Main() {
+    const forms = useSelector((state) => state.forms.forms);
     const dispatch = useDispatch();
 
     const {
@@ -17,8 +19,8 @@ function Main() {
         formState: { errors },
     } = useForm({
         defaultValues: {
-            email: 'etemax@bk.ru',
-            tel: '+7 (952) 422-62-44',
+            email: forms.email,
+            tel: forms.tel,
         },
         mode: 'onChange',
     });
