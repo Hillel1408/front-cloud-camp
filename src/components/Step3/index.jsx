@@ -6,10 +6,15 @@ import styles from './Step3.module.scss';
 import stylesInput from '../Input/Input.module.scss';
 import classNames from 'classnames';
 import { useDispatch } from 'react-redux';
-import { addForm } from '../../store/formsSlice';
+import { addForm, fetchForms } from '../../store/formsSlice';
+import { useSelector } from 'react-redux';
+import { useState } from 'react';
 
 function Step3({ active }) {
+    const [activeModal, setActiveModal] = useState('');
+
     const dispatch = useDispatch();
+    const forms = useSelector((state) => state.forms.forms);
 
     const {
         register,
@@ -23,8 +28,13 @@ function Step3({ active }) {
         mode: 'onChange',
     });
 
-    const onSubmit = (values) => {
+    const onSubmit = async (values) => {
         dispatch(addForm(values));
+        const data = await dispatch(fetchForms({ ...forms, ...values }));
+        if (!data.payload) {
+            setActiveModal('error');
+        }
+        setActiveModal('succes');
     };
 
     return (
@@ -77,7 +87,7 @@ function Step3({ active }) {
                     />
                 </div>
             </form>
-            <Modal active={false}>
+            <Modal active={activeModal === 'succes'} setActive={setActiveModal}>
                 <div className={styles.succes}>
                     <h2 className="title">Форма успешно отправлена</h2>
                     <div className={styles.succesIcon}>
@@ -91,7 +101,7 @@ function Step3({ active }) {
                     />
                 </div>
             </Modal>
-            <Modal active={false}>
+            <Modal active={activeModal === 'error'} setActive={setActiveModal}>
                 <div className={styles.error}>
                     <div className={styles.errorClose}>
                         <img src="/icon-4.svg" alt="" />

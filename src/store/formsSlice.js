@@ -1,4 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from '../axios';
 
 const formsSlice = createSlice({
     name: 'forms',
@@ -8,10 +9,20 @@ const formsSlice = createSlice({
     reducers: {
         addForm(state, action) {
             state.forms = { ...state.forms, ...action.payload };
-            console.log(state.forms);
         },
     },
 });
+
+export const fetchForms = createAsyncThunk(
+    'forms/fetchForms',
+    async (params) => {
+        const { data } = await axios.post(
+            '/content/v1/bootcamp/frontend',
+            params
+        );
+        return data;
+    }
+);
 
 export const { addForm } = formsSlice.actions;
 

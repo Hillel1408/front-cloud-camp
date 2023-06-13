@@ -4,7 +4,7 @@ import styles from './Modal.module.scss';
 
 function Modal({ active, setActive, children }) {
     const closeModal = () => {
-        setActive(false);
+        setActive('');
         document.body.classList.remove('lock');
     };
 
