@@ -16,11 +16,15 @@ const formsSlice = createSlice({
 export const fetchForms = createAsyncThunk(
     'forms/fetchForms',
     async (params) => {
-        const { data } = await axios.post(
-            '/content/v1/bootcamp/frontend',
-            params
-        );
-        return data;
+        try {
+            const { data } = await axios.post(
+                '/content/v1/bootcamp/frontend',
+                params
+            );
+            return data;
+        } catch (e) {
+            console.log(e.response?.data?.message);
+        }
     }
 );
 
