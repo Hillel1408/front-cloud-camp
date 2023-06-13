@@ -4,8 +4,12 @@ import { Button } from '../../components/Button';
 import { CustomSelect } from '../CustomSelect';
 import stylesInput from '../Input/Input.module.scss';
 import styles from './Step1.module.scss';
+import { useDispatch } from 'react-redux';
+import { addForm } from '../../store/formsSlice';
 
 function Step1({ active, setActive }) {
+    const dispatch = useDispatch();
+
     const options = [
         {
             value: 'man',
@@ -35,7 +39,7 @@ function Step1({ active, setActive }) {
     });
 
     const onSubmit = (values) => {
-        console.log(values);
+        dispatch(addForm(values));
         setActive(2);
     };
 

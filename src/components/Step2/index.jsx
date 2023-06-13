@@ -2,8 +2,12 @@ import { Button } from '../../components/Button';
 import { useForm, useFieldArray } from 'react-hook-form';
 import styles from './Step2.module.scss';
 import stylesInput from '../Input/Input.module.scss';
+import { useDispatch } from 'react-redux';
+import { addForm } from '../../store/formsSlice';
 
 function Step2({ active, setActive }) {
+    const dispatch = useDispatch();
+
     const {
         register,
         handleSubmit,
@@ -34,7 +38,7 @@ function Step2({ active, setActive }) {
     });
 
     const onSubmit = (values) => {
-        console.log(values);
+        dispatch(addForm(values));
         setActive(3);
     };
 
@@ -48,7 +52,7 @@ function Step2({ active, setActive }) {
                 Advantages
                 {fields.map((item, index) => {
                     return (
-                        <>
+                        <div key={index}>
                             <div className={styles.advantages}>
                                 <input
                                     type="text"
@@ -56,7 +60,8 @@ function Step2({ active, setActive }) {
                                     className={stylesInput.input}
                                     placeholder="Placeholder"
                                     {...register(`advantages.${index}.name`, {
-                                        required: true,
+                                        required:
+                                            'Поле обязательно к заполнению',
                                         maxLength: {
                                             value: 20,
                                             message: 'Максимум 20 символов',
@@ -65,7 +70,10 @@ function Step2({ active, setActive }) {
                                 />
                                 <button
                                     id={`button-remove-${index + 1}`}
-                                    onClick={() => remove(index)}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        remove(index);
+                                    }}
                                 >
                                     <svg
                                         width="16"
@@ -89,13 +97,16 @@ function Step2({ active, setActive }) {
                                 {errors?.advantages?.length &&
                                     errors?.advantages[index]?.name.message}
                             </p>
-                        </>
+                        </div>
                     );
                 })}
                 <button
                     className={styles.addBtn}
                     id="button add"
-                    onClick={() => append({ name: '' })}
+                    onClick={(e) => {
+                        e.preventDefault();
+                        append({ name: '' });
+                    }}
                 >
                     <svg
                         width="12"

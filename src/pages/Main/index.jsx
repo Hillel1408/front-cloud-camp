@@ -5,8 +5,12 @@ import { Label } from '../../components/Label';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import InputMask from 'react-input-mask';
+import { useDispatch } from 'react-redux';
+import { addForm } from '../../store/formsSlice';
 
 function Main() {
+    const dispatch = useDispatch();
+
     const {
         register,
         handleSubmit,
@@ -22,7 +26,7 @@ function Main() {
     const navigate = useNavigate();
 
     const onSubmit = (values) => {
-        console.log(values);
+        dispatch(addForm(values));
         navigate('/steps');
     };
 
