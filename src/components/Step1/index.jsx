@@ -7,10 +7,13 @@ import styles from './Step1.module.scss';
 import { useDispatch } from 'react-redux';
 import { addForm } from '../../store/formsSlice';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 function Step1({ active, setActive }) {
     const forms = useSelector((state) => state.forms.forms);
     const dispatch = useDispatch();
+
+    const navigate = useNavigate();
 
     const options = [
         {
@@ -137,7 +140,6 @@ function Step1({ active, setActive }) {
                                 value={options.find((c) => c.value === value)}
                                 onChange={(val) => onChange(val.value)}
                                 id="field-sex"
-                                defaultValue={options[0]}
                                 getOptionLabel={(props) => {
                                     const { id, label } = props;
                                     return <div id={id}>{label}</div>;
@@ -155,7 +157,9 @@ function Step1({ active, setActive }) {
                     bg="white"
                     color="#5558FA"
                     id="button-back"
-                    href="/"
+                    click={() => {
+                        navigate('/');
+                    }}
                 />
                 <Button
                     text="Далее"
