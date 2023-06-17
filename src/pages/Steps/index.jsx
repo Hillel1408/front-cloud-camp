@@ -12,9 +12,9 @@ function Steps() {
     return (
         <div className={styles.block}>
             <Progress count={count} active={active} />
-            <Step1 active={active} setActive={setActive} />
-            <Step2 active={active} setActive={setActive} />
-            <Step3 active={active} setActive={setActive} />
+            {active === 1 && <Step1 active={active} setActive={setActive} />}
+            {active === 2 && <Step2 active={active} setActive={setActive} />}
+            {active === 3 && <Step3 active={active} setActive={setActive} />}
         </div>
     );
 }

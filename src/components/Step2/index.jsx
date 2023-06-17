@@ -36,11 +36,7 @@ function Step2({ active, setActive }) {
     };
 
     return (
-        <form
-            onSubmit={handleSubmit(onSubmit)}
-            className={styles.form}
-            style={active === 2 ? { display: 'flex' } : { display: 'none' }}
-        >
+        <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
             <div className={styles.formGroup}>
                 Advantages
                 {fields.map((item, index) => {

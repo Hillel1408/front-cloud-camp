@@ -48,11 +48,7 @@ function Step1({ active, setActive }) {
     };
 
     return (
-        <form
-            onSubmit={handleSubmit(onSubmit)}
-            className={styles.form}
-            style={active === 1 ? { display: 'flex' } : { display: 'none' }}
-        >
+        <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
             <div>
                 <Label>
                     Nickname

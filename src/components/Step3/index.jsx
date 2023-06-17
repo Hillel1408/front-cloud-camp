@@ -39,11 +39,7 @@ function Step3({ active, setActive }) {
 
     return (
         <>
-            <form
-                onSubmit={handleSubmit(onSubmit)}
-                className={styles.form}
-                style={active === 3 ? { display: 'flex' } : { display: 'none' }}
-            >
+            <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
                 <div>
                     <Label width="100%">
                         About
