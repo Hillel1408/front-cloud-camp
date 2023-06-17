@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import InputMask from 'react-input-mask';
+import { withHookFormMask } from 'use-mask-input';
 import { Button } from '../../components/Button';
 import { Label } from '../../components/Label';
 import { addForm } from '../../store/formsSlice';
@@ -66,14 +66,16 @@ function Main() {
                 <div>
                     <Label>
                         Номер телефона
-                        <InputMask
+                        <input
+                            type="text"
                             className={stylesInput.input}
-                            mask={'+7(999)999-99-99'}
-                            alwaysShowMask={false}
                             placeholder="+7(999)999-99-99"
-                            {...register('tel', {
-                                required: 'Поле обязательно к заполнению',
-                            })}
+                            {...withHookFormMask(
+                                register('tel', {
+                                    required: 'Поле обязательно к заполнению',
+                                }),
+                                ['+7(999)999-99-99']
+                            )}
                         />
                     </Label>
                     <p className="error">
