@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useForm, Controller } from 'react-hook-form';
-import { useSelector, useNavigate } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { Label } from '../Label';
 import { Button } from '../../components/Button';
 import { CustomSelect } from '../CustomSelect';
