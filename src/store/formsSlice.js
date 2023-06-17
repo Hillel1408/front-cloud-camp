@@ -1,36 +1,39 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from '../axios';
 
+const initialState = {
+    forms: {
+        email: 'etemax@bk.ru',
+        tel: '+7(952)422-62-44',
+        nickname: '',
+        name: '',
+        sername: '',
+        sex: '',
+        radio: '1',
+        checkbox: [],
+        advantages: [
+            {
+                name: '',
+            },
+            {
+                name: '',
+            },
+            {
+                name: '',
+            },
+        ],
+        about: '',
+    },
+};
+
 const formsSlice = createSlice({
     name: 'forms',
-    initialState: {
-        forms: {
-            email: 'etemax@bk.ru',
-            tel: '+7 (952) 422-62-44',
-            nickname: '',
-            name: '',
-            sername: '',
-            sex: '',
-            radio: '1',
-            checkbox: [],
-            advantages: [
-                {
-                    name: '',
-                },
-                {
-                    name: '',
-                },
-                {
-                    name: '',
-                },
-            ],
-            about: '',
-        },
-    },
+    initialState,
     reducers: {
         addForm(state, action) {
             state.forms = { ...state.forms, ...action.payload };
         },
+        reset: () => initialState,
     },
 });
 
@@ -49,6 +52,6 @@ export const fetchForms = createAsyncThunk(
     }
 );
 
-export const { addForm } = formsSlice.actions;
+export const { addForm, reset } = formsSlice.actions;
 
 export default formsSlice.reducer;

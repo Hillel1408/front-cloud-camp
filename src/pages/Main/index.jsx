@@ -68,9 +68,9 @@ function Main() {
                         Номер телефона
                         <InputMask
                             className={stylesInput.input}
-                            mask={'+7 (999) 999-99-99'}
+                            mask={'+7(999)999-99-99'}
                             alwaysShowMask={false}
-                            placeholder="+7 999 999-99-99"
+                            placeholder="+7(999)999-99-99"
                             {...register('tel', {
                                 required: 'Поле обязательно к заполнению',
                             })}
