@@ -1,10 +1,9 @@
-import { Button } from '../../components/Button';
+import { useDispatch, useSelector } from 'react-redux';
 import { useForm, useFieldArray } from 'react-hook-form';
+import { Button } from '../../components/Button';
+import { addForm } from '../../store/formsSlice';
 import styles from './Step2.module.scss';
 import stylesInput from '../Input/Input.module.scss';
-import { useDispatch } from 'react-redux';
-import { addForm } from '../../store/formsSlice';
-import { useSelector } from 'react-redux';
 
 function Step2({ active, setActive }) {
     const forms = useSelector((state) => state.forms.forms);

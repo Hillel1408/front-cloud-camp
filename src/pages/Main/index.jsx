@@ -1,13 +1,12 @@
-import styles from './Main.module.scss';
-import stylesInput from '../../components/Input/Input.module.scss';
-import { Button } from '../../components/Button';
-import { Label } from '../../components/Label';
+import { useSelector, useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import InputMask from 'react-input-mask';
-import { useDispatch } from 'react-redux';
+import { Button } from '../../components/Button';
+import { Label } from '../../components/Label';
 import { addForm } from '../../store/formsSlice';
-import { useSelector } from 'react-redux';
+import styles from './Main.module.scss';
+import stylesInput from '../../components/Input/Input.module.scss';
 
 function Main() {
     const forms = useSelector((state) => state.forms.forms);

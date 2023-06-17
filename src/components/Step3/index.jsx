@@ -1,15 +1,14 @@
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import classNames from 'classnames';
+import { useSelector, useDispatch } from 'react-redux';
 import { Modal } from '../../components/Modal';
 import { Label } from '../Label';
 import { Button } from '../../components/Button';
+import { addForm, fetchForms } from '../../store/formsSlice';
 import styles from './Step3.module.scss';
 import stylesInput from '../Input/Input.module.scss';
-import classNames from 'classnames';
-import { useDispatch } from 'react-redux';
-import { addForm, fetchForms } from '../../store/formsSlice';
-import { useSelector } from 'react-redux';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 function Step3({ active, setActive }) {
     const [activeModal, setActiveModal] = useState('');
@@ -35,8 +34,7 @@ function Step3({ active, setActive }) {
         const data = await dispatch(fetchForms({ ...forms, ...values }));
         if (!data.payload) {
             setActiveModal('error');
-        }
-        setActiveModal('succes');
+        } else setActiveModal('succes');
     };
 
     return (
@@ -116,7 +114,13 @@ function Step3({ active, setActive }) {
             </Modal>
             <Modal active={activeModal === 'error'} setActive={setActiveModal}>
                 <div className={styles.error}>
-                    <div className={styles.errorClose}>
+                    <div
+                        className={styles.errorClose}
+                        onClick={() => {
+                            setActiveModal('');
+                            document.body.classList.remove('lock');
+                        }}
+                    >
                         <img src="/icon-4.svg" alt="" />
                     </div>
                     <h2 className="title">Ошибка</h2>
@@ -128,6 +132,10 @@ function Step3({ active, setActive }) {
                         bg="#5558FA"
                         color="white"
                         id="button-close"
+                        click={() => {
+                            setActiveModal('');
+                            document.body.classList.remove('lock');
+                        }}
                     />
                 </div>
             </Modal>

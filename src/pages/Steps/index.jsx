@@ -1,10 +1,9 @@
-import { Button } from '../../components/Button';
-import styles from './Steps.module.scss';
-import { Progress } from '../../components/Progress';
 import { useState } from 'react';
+import { Progress } from '../../components/Progress';
 import { Step1 } from '../../components/Step1';
 import { Step2 } from '../../components/Step2';
 import { Step3 } from '../../components/Step3';
+import styles from './Steps.module.scss';
 
 function Steps() {
     const count = 3; //количество форм

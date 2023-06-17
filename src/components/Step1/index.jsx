@@ -1,13 +1,12 @@
+import { useDispatch } from 'react-redux';
 import { useForm, Controller } from 'react-hook-form';
+import { useSelector, useNavigate } from 'react-redux';
 import { Label } from '../Label';
 import { Button } from '../../components/Button';
 import { CustomSelect } from '../CustomSelect';
+import { addForm } from '../../store/formsSlice';
 import stylesInput from '../Input/Input.module.scss';
 import styles from './Step1.module.scss';
-import { useDispatch } from 'react-redux';
-import { addForm } from '../../store/formsSlice';
-import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 
 function Step1({ active, setActive }) {
     const forms = useSelector((state) => state.forms.forms);
