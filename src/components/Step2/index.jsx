@@ -5,6 +5,8 @@ import { addForm } from '../../store/formsSlice';
 import styles from './Step2.module.scss';
 import stylesInput from '../Input/Input.module.scss';
 
+import { Label } from '../Label';
+
 function Step2({ active, setActive }) {
     const forms = useSelector((state) => state.forms.forms);
     const dispatch = useDispatch();
@@ -115,7 +117,7 @@ function Step2({ active, setActive }) {
             </div>
             <div className={styles.formGroup}>
                 Checkbox group
-                <label>
+                <Label direction="row">
                     <input
                         id="field-checkbox-group-option-1"
                         type="checkbox"
@@ -123,8 +125,8 @@ function Step2({ active, setActive }) {
                         {...register('checkbox')}
                     />
                     1
-                </label>
-                <label>
+                </Label>
+                <Label direction="row">
                     <input
                         id="field-checkbox-group-option-2"
                         type="checkbox"
@@ -132,8 +134,8 @@ function Step2({ active, setActive }) {
                         {...register('checkbox')}
                     />
                     2
-                </label>
-                <label>
+                </Label>
+                <Label direction="row">
                     <input
                         id="field-checkbox-group-option-3"
                         type="checkbox"
@@ -141,11 +143,11 @@ function Step2({ active, setActive }) {
                         {...register('checkbox')}
                     />
                     3
-                </label>
+                </Label>
             </div>
             <div className={styles.formGroup}>
                 Radio group
-                <label>
+                <Label direction="row">
                     <input
                         id="field-radio-group-option-1"
                         type="radio"
@@ -153,8 +155,8 @@ function Step2({ active, setActive }) {
                         {...register('radio')}
                     />
                     1
-                </label>
-                <label>
+                </Label>
+                <Label direction="row">
                     <input
                         id="field-radio-group-option-2"
                         type="radio"
@@ -162,8 +164,8 @@ function Step2({ active, setActive }) {
                         {...register('radio')}
                     />
                     2
-                </label>
-                <label>
+                </Label>
+                <Label direction="row">
                     <input
                         id="field-radio-group-option-3"
                         type="radio"
@@ -171,7 +173,7 @@ function Step2({ active, setActive }) {
                         {...register('radio')}
                     />
                     3
-                </label>
+                </Label>
             </div>
             <div className="buttons">
                 <Button

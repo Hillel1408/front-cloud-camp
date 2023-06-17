@@ -1,6 +1,6 @@
 import styles from './Button.module.scss';
 
-function Button({ text, color, bg, id, href, type, click }) {
+function Button({ text, color, bg, id, type, click }) {
     return (
         <button
             id={id}
