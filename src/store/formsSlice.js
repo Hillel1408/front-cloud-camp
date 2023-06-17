@@ -11,6 +11,20 @@ const formsSlice = createSlice({
             name: '',
             sername: '',
             sex: '',
+            radio: '1',
+            checkbox: [],
+            advantages: [
+                {
+                    name: '',
+                },
+                {
+                    name: '',
+                },
+                {
+                    name: '',
+                },
+            ],
+            about: '',
         },
     },
     reducers: {

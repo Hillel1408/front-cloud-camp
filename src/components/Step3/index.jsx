@@ -9,9 +9,12 @@ import { useDispatch } from 'react-redux';
 import { addForm, fetchForms } from '../../store/formsSlice';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-function Step3({ active }) {
+function Step3({ active, setActive }) {
     const [activeModal, setActiveModal] = useState('');
+
+    const navigate = useNavigate();
 
     const dispatch = useDispatch();
     const forms = useSelector((state) => state.forms.forms);
@@ -23,13 +26,12 @@ function Step3({ active }) {
         formState: { errors },
     } = useForm({
         defaultValues: {
-            about: '',
+            about: forms.about,
         },
         mode: 'onChange',
     });
 
     const onSubmit = async (values) => {
-        dispatch(addForm(values));
         const data = await dispatch(fetchForms({ ...forms, ...values }));
         if (!data.payload) {
             setActiveModal('error');
@@ -60,6 +62,11 @@ function Step3({ active }) {
                                     value: 200,
                                     message: 'Максимум 200 символов',
                                 },
+                                onChange: (e) => {
+                                    dispatch(
+                                        addForm({ about: e.target.value })
+                                    );
+                                },
                             })}
                         />
                         <span className={styles.counter}>
@@ -76,7 +83,9 @@ function Step3({ active }) {
                         bg="white"
                         color="#5558FA"
                         id="button-back"
-                        href="/"
+                        click={() => {
+                            setActive(2);
+                        }}
                     />
                     <Button
                         text="Отправить"
@@ -98,6 +107,10 @@ function Step3({ active }) {
                         bg="#5558FA"
                         color="white"
                         id="button-to-main"
+                        click={() => {
+                            document.body.classList.remove('lock');
+                            navigate('/');
+                        }}
                     />
                 </div>
             </Modal>

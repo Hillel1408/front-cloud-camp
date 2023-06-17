@@ -4,8 +4,10 @@ import styles from './Step2.module.scss';
 import stylesInput from '../Input/Input.module.scss';
 import { useDispatch } from 'react-redux';
 import { addForm } from '../../store/formsSlice';
+import { useSelector } from 'react-redux';
 
 function Step2({ active, setActive }) {
+    const forms = useSelector((state) => state.forms.forms);
     const dispatch = useDispatch();
 
     const {
@@ -15,19 +17,9 @@ function Step2({ active, setActive }) {
         formState: { errors },
     } = useForm({
         defaultValues: {
-            radio: '1',
-            checkbox: '',
-            advantages: [
-                {
-                    name: '',
-                },
-                {
-                    name: '',
-                },
-                {
-                    name: '',
-                },
-            ],
+            radio: forms.radio,
+            checkbox: forms.checkbox,
+            advantages: forms.advantages,
         },
         mode: 'onChange',
     });

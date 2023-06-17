@@ -44,7 +44,6 @@ function Step1({ active, setActive }) {
     });
 
     const onSubmit = (values) => {
-        dispatch(addForm(values));
         setActive(2);
     };
 
@@ -72,6 +71,9 @@ function Step1({ active, setActive }) {
                                 value: /^[A-zА-яЁё0-9]+$/,
                                 message: 'Только буквы и цифры',
                             },
+                            onChange: (e) => {
+                                dispatch(addForm({ nickname: e.target.value }));
+                            },
                         })}
                     />
                 </Label>
@@ -97,6 +99,9 @@ function Step1({ active, setActive }) {
                                 value: /^[A-zА-яЁё]+$/,
                                 message: 'Только буквы',
                             },
+                            onChange: (e) => {
+                                dispatch(addForm({ name: e.target.value }));
+                            },
                         })}
                     />
                 </Label>
@@ -120,6 +125,9 @@ function Step1({ active, setActive }) {
                                 value: /^[A-zА-яЁё]+$/,
                                 message: 'Только буквы',
                             },
+                            onChange: (e) => {
+                                dispatch(addForm({ sername: e.target.value }));
+                            },
                         })}
                     />
                 </Label>
@@ -138,7 +146,10 @@ function Step1({ active, setActive }) {
                                 options={options}
                                 placeholder="Не выбрано"
                                 value={options.find((c) => c.value === value)}
-                                onChange={(val) => onChange(val.value)}
+                                onChange={(val) => {
+                                    onChange(val.value);
+                                    dispatch(addForm({ sex: val.value }));
+                                }}
                                 id="field-sex"
                                 getOptionLabel={(props) => {
                                     const { id, label } = props;
