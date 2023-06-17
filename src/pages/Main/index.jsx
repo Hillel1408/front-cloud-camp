@@ -71,7 +71,6 @@ function Main() {
                             mask={'+7(999)999-99-99'}
                             alwaysShowMask={false}
                             placeholder="+7(999)999-99-99"
-                            defaultValues="+7(952)422-62-44"
                             {...register('tel', {
                                 required: 'Поле обязательно к заполнению',
                             })}

@@ -5,7 +5,7 @@ import './styles/globals.scss';
 
 function App() {
     return (
-        <Router>
+        <Router basename="front-cloud-camp">
             <main className="container">
                 <Routes>
                     <Route path="/" element={<Main />} />
