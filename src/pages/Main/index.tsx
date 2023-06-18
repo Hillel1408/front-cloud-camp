@@ -58,7 +58,12 @@ function Main() {
                         </li>
                         <li>
                             <img src="/icon-1.svg" alt="" />
-                            <a href="/">Resume</a>
+                            <a
+                                href="https://daragan-media.com/files/resume.pdf"
+                                target="blank"
+                            >
+                                Resume
+                            </a>
                         </li>
                     </ul>
                 </div>
