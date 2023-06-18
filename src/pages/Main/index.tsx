@@ -13,6 +13,24 @@ function Main() {
     const forms = useAppSelector((state) => state.forms.forms);
     const dispatch = useAppDispatch();
 
+    const links = [
+        {
+            icon: 'icon-1.svg',
+            href: 'https://t.me/etemax',
+            text: 'Telegram',
+        },
+        {
+            icon: 'icon-1.svg',
+            href: 'https://github.com/Hillel1408',
+            text: 'GitHub',
+        },
+        {
+            icon: 'icon-1.svg',
+            href: 'https://daragan-media.com/files/resume.pdf',
+            text: 'Resume',
+        },
+    ];
+
     const {
         register,
         handleSubmit,
@@ -41,30 +59,14 @@ function Main() {
                 <div className={styles.profileFlex}>
                     <h1 className="title">Дараган Максим</h1>
                     <ul>
-                        <li>
-                            <img src="/icon-1.svg" alt="" />
-                            <a href="https://t.me/etemax" target="blank">
-                                Telegram
-                            </a>
-                        </li>
-                        <li>
-                            <img src="/icon-1.svg" alt="" />
-                            <a
-                                href="https://github.com/Hillel1408"
-                                target="blank"
-                            >
-                                GitHub
-                            </a>
-                        </li>
-                        <li>
-                            <img src="/icon-1.svg" alt="" />
-                            <a
-                                href="https://daragan-media.com/files/resume.pdf"
-                                target="blank"
-                            >
-                                Resume
-                            </a>
-                        </li>
+                        {links.map((item, index) => (
+                            <li key={index}>
+                                <img src={item.icon} alt="" />
+                                <a href={item.href} target="blank">
+                                    {item.text}
+                                </a>
+                            </li>
+                        ))}
                     </ul>
                 </div>
             </div>
