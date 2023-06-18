@@ -9,6 +9,7 @@
         display: flex;
         align-items: center;
         gap: 10px;
+        flex-direction: row;
     }
     input[type='checkbox'],
     input[type='radio'] {

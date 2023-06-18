@@ -87,7 +87,7 @@ function Step2({ setActive }) {
             </div>
             <div className={styles.formGroup}>
                 Checkbox group
-                <Label direction="row">
+                <Label>
                     <input
                         id="field-checkbox-group-option-1"
                         type="checkbox"
@@ -96,7 +96,7 @@ function Step2({ setActive }) {
                     />
                     1
                 </Label>
-                <Label direction="row">
+                <Label>
                     <input
                         id="field-checkbox-group-option-2"
                         type="checkbox"
@@ -105,7 +105,7 @@ function Step2({ setActive }) {
                     />
                     2
                 </Label>
-                <Label direction="row">
+                <Label>
                     <input
                         id="field-checkbox-group-option-3"
                         type="checkbox"
@@ -117,7 +117,7 @@ function Step2({ setActive }) {
             </div>
             <div className={styles.formGroup}>
                 Radio group
-                <Label direction="row">
+                <Label>
                     <input
                         id="field-radio-group-option-1"
                         type="radio"
@@ -126,7 +126,7 @@ function Step2({ setActive }) {
                     />
                     1
                 </Label>
-                <Label direction="row">
+                <Label>
                     <input
                         id="field-radio-group-option-2"
                         type="radio"
@@ -135,7 +135,7 @@ function Step2({ setActive }) {
                     />
                     2
                 </Label>
-                <Label direction="row">
+                <Label>
                     <input
                         id="field-radio-group-option-3"
                         type="radio"

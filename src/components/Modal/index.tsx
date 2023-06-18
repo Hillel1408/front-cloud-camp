@@ -6,7 +6,7 @@ import styles from './Modal.module.scss';
 interface ModalProps {
     active: boolean;
     setActive: any;
-    children?: ReactNode;
+    children: ReactNode;
 }
 
 interface KeyboardEvent {
