@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import { Modal } from '../Modal';
 import { Label } from '../Label';
 import { Button } from '../Button';
-import { addForm, fetchForms } from '../../store/formsSlice';
+import { addForm, fetchForms, resetStore } from '../../store/formsSlice';
 import styles from './Step3.module.scss';
 import stylesInput from '../Input/Input.module.scss';
 
@@ -31,6 +31,7 @@ function Step3({ setActive }: Step3Props) {
         register,
         handleSubmit,
         watch,
+        reset,
         formState: { errors },
     } = useForm({
         defaultValues: {
@@ -43,7 +44,11 @@ function Step3({ setActive }: Step3Props) {
         const data = await dispatch(fetchForms({ ...forms, ...values }));
         if (!data.payload) {
             setActiveModal('error');
-        } else setActiveModal('succes');
+        } else {
+            reset();
+            dispatch(resetStore());
+            setActiveModal('succes');
+        }
     };
 
     return (

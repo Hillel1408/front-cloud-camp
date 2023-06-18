@@ -26,6 +26,7 @@ function Step2({ setActive }: Step2Props) {
         register,
         handleSubmit,
         control,
+        watch,
         formState: { errors },
     } = useForm<FormValues>({
         defaultValues: {
@@ -163,6 +164,7 @@ function Step2({ setActive }: Step2Props) {
                     color="#5558FA"
                     id="button-back"
                     click={() => {
+                        dispatch(addForm(watch()));
                         setActive(1);
                     }}
                 />

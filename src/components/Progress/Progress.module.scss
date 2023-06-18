@@ -6,6 +6,7 @@
     display: flex;
     justify-content: space-between;
     counter-reset: progress 0;
+    position: relative;
     &Item {
         display: inline-flex;
         width: 16px;
@@ -39,4 +40,11 @@
             }
         }
     }
+}
+.progress {
+    position: absolute;
+    background-color: #5558fa;
+    height: 100%;
+    border-radius: 8px;
+    transition: 1.5s;
 }

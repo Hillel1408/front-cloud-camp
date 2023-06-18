@@ -33,7 +33,7 @@ const formsSlice = createSlice({
         addForm(state, action) {
             state.forms = { ...state.forms, ...action.payload };
         },
-        reset: () => initialState,
+        resetStore: () => initialState,
     },
 });
 
@@ -52,6 +52,6 @@ export const fetchForms = createAsyncThunk(
     }
 );
 
-export const { addForm, reset } = formsSlice.actions;
+export const { addForm, resetStore } = formsSlice.actions;
 
 export default formsSlice.reducer;
