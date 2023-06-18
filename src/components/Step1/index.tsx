@@ -1,17 +1,28 @@
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '../../hook';
+import { useAppSelector } from '../../hook';
 import { useForm, Controller } from 'react-hook-form';
-import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Label } from '../Label';
-import { Button } from '../../components/Button';
+import { Button } from '../Button';
 import { CustomSelect } from '../CustomSelect';
 import { addForm } from '../../store/formsSlice';
 import stylesInput from '../Input/Input.module.scss';
 import styles from './Step1.module.scss';
 
-function Step1({ setActive }) {
-    const forms = useSelector((state) => state.forms.forms);
-    const dispatch = useDispatch();
+interface Step1Props {
+    setActive: (value: number) => void;
+}
+
+interface FormValues {
+    nickname: string;
+    name: string;
+    sername: string;
+    sex: string;
+}
+
+function Step1({ setActive }: Step1Props) {
+    const forms = useAppSelector((state) => state.forms.forms);
+    const dispatch = useAppDispatch();
 
     const navigate = useNavigate();
 
@@ -43,7 +54,7 @@ function Step1({ setActive }) {
         mode: 'onChange',
     });
 
-    const onSubmit = (values) => {
+    const onSubmit = (values: FormValues) => {
         setActive(2);
     };
 
@@ -142,12 +153,15 @@ function Step1({ setActive }) {
                                 options={options}
                                 placeholder="Не выбрано"
                                 value={options.find((c) => c.value === value)}
-                                onChange={(val) => {
+                                onChange={(val: { value: string }) => {
                                     onChange(val.value);
                                     dispatch(addForm({ sex: val.value }));
                                 }}
                                 id="field-sex"
-                                getOptionLabel={(props) => {
+                                getOptionLabel={(props: {
+                                    id: string;
+                                    label: string;
+                                }) => {
                                     const { id, label } = props;
                                     return <div id={id}>{label}</div>;
                                 }}

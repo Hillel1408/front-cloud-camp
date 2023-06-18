@@ -39,14 +39,14 @@ const formsSlice = createSlice({
 
 export const fetchForms = createAsyncThunk(
     'forms/fetchForms',
-    async (params) => {
+    async (params: any) => {
         try {
             const { data } = await axios.post(
                 '/content/v1/bootcamp/frontend',
                 params
             );
             return data;
-        } catch (e) {
+        } catch (e: any) {
             console.log(e.response?.data?.message);
         }
     }

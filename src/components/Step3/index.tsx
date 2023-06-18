@@ -1,22 +1,31 @@
+import { useAppDispatch } from '../../hook';
+import { useAppSelector } from '../../hook';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import classNames from 'classnames';
-import { useSelector, useDispatch } from 'react-redux';
-import { Modal } from '../../components/Modal';
+import { Modal } from '../Modal';
 import { Label } from '../Label';
-import { Button } from '../../components/Button';
+import { Button } from '../Button';
 import { addForm, fetchForms } from '../../store/formsSlice';
 import styles from './Step3.module.scss';
 import stylesInput from '../Input/Input.module.scss';
 
-function Step3({ setActive }) {
+interface FormValues {
+    about: string;
+}
+
+interface Step3Props {
+    setActive: (value: number) => void;
+}
+
+function Step3({ setActive }: Step3Props) {
     const [activeModal, setActiveModal] = useState('');
 
     const navigate = useNavigate();
 
-    const dispatch = useDispatch();
-    const forms = useSelector((state) => state.forms.forms);
+    const dispatch = useAppDispatch();
+    const forms = useAppSelector((state) => state.forms.forms);
 
     const {
         register,
@@ -30,7 +39,7 @@ function Step3({ setActive }) {
         mode: 'onChange',
     });
 
-    const onSubmit = async (values) => {
+    const onSubmit = async (values: FormValues) => {
         const data = await dispatch(fetchForms({ ...forms, ...values }));
         if (!data.payload) {
             setActiveModal('error');

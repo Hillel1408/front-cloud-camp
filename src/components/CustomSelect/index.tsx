@@ -1,14 +1,30 @@
 import Select from 'react-select';
 
-function CustomSelect(props) {
+interface ISelect {
+    value: string;
+    label: string;
+    id: string;
+}
+
+interface CustomSelectProps {
+    options: ISelect[];
+    placeholder: string;
+    value?: ISelect;
+    onChange: any;
+    id: string;
+    defaultValue?: ISelect;
+    getOptionLabel: any;
+}
+
+function CustomSelect(props: CustomSelectProps) {
     const customStyles = {
-        placeholder: (provided) => ({
+        placeholder: (provided: any) => ({
             ...provided,
             color: 'rgba(0, 0, 0, 0.48)',
             fontSize: '14px',
             lineHeight: '20px',
         }),
-        control: (provided) => ({
+        control: (provided: any) => ({
             ...provided,
             minHeight: '44px',
         }),

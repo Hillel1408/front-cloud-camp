@@ -1,6 +1,15 @@
 import styles from './Button.module.scss';
 
-function Button({ text, color, bg, id, type, click }) {
+interface ButtonProps {
+    text: string;
+    color: string;
+    bg: string;
+    id: string;
+    type?: 'reset' | 'button' | 'submit';
+    click?: () => void;
+}
+
+function Button({ text, color, bg, id, type, click }: ButtonProps) {
     return (
         <button
             id={id}

@@ -1,4 +1,5 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useAppDispatch } from '../../hook';
+import { useAppSelector } from '../../hook';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { withHookFormMask } from 'use-mask-input';
@@ -8,15 +9,20 @@ import { addForm } from '../../store/formsSlice';
 import styles from './Main.module.scss';
 import stylesInput from '../../components/Input/Input.module.scss';
 
+interface FormValues {
+    email: string;
+    tel: string;
+}
+
 function Main() {
-    const forms = useSelector((state) => state.forms.forms);
-    const dispatch = useDispatch();
+    const forms = useAppSelector((state) => state.forms.forms);
+    const dispatch = useAppDispatch();
 
     const {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm({
+    } = useForm<FormValues>({
         defaultValues: {
             email: forms.email,
             tel: forms.tel,
@@ -26,7 +32,7 @@ function Main() {
 
     const navigate = useNavigate();
 
-    const onSubmit = (values) => {
+    const onSubmit = (values: FormValues) => {
         dispatch(addForm(values));
         navigate('/steps');
     };

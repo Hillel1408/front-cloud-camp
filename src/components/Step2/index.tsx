@@ -1,22 +1,33 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch } from '../../hook';
+import { useAppSelector } from '../../hook';
 import { useForm, useFieldArray } from 'react-hook-form';
-import { Button } from '../../components/Button';
+import { Button } from '../Button';
 import { addForm } from '../../store/formsSlice';
 import styles from './Step2.module.scss';
 import stylesInput from '../Input/Input.module.scss';
 
 import { Label } from '../Label';
 
-function Step2({ setActive }) {
-    const forms = useSelector((state) => state.forms.forms);
-    const dispatch = useDispatch();
+interface Step2Props {
+    setActive: (value: number) => void;
+}
+
+interface FormValues {
+    radio: string;
+    checkbox: string[];
+    advantages: { name: string }[];
+}
+
+function Step2({ setActive }: Step2Props) {
+    const forms = useAppSelector((state) => state.forms.forms);
+    const dispatch = useAppDispatch();
 
     const {
         register,
         handleSubmit,
         control,
         formState: { errors },
-    } = useForm({
+    } = useForm<FormValues>({
         defaultValues: {
             radio: forms.radio,
             checkbox: forms.checkbox,
@@ -30,7 +41,7 @@ function Step2({ setActive }) {
         name: 'advantages',
     });
 
-    const onSubmit = (values) => {
+    const onSubmit = (values: FormValues) => {
         dispatch(addForm(values));
         setActive(3);
     };
@@ -69,7 +80,7 @@ function Step2({ setActive }) {
                             </div>
                             <p className="error">
                                 {errors?.advantages?.length &&
-                                    errors?.advantages[index]?.name.message}
+                                    errors?.advantages[index]?.name?.message}
                             </p>
                         </div>
                     );
