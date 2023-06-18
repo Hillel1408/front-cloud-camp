@@ -9,7 +9,7 @@ import { addForm } from '../../store/formsSlice';
 import stylesInput from '../Input/Input.module.scss';
 import styles from './Step1.module.scss';
 
-function Step1({ active, setActive }) {
+function Step1({ setActive }) {
     const forms = useSelector((state) => state.forms.forms);
     const dispatch = useDispatch();
 

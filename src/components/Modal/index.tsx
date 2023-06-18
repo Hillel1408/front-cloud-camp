@@ -1,15 +1,26 @@
 import { useEffect } from 'react';
+import type { ReactNode } from 'react';
 import classNames from 'classnames';
 import styles from './Modal.module.scss';
 
-function Modal({ active, setActive, children }) {
+interface ModalProps {
+    active: boolean;
+    setActive: any;
+    children?: ReactNode;
+}
+
+interface KeyboardEvent {
+    keyCode: number;
+}
+
+function Modal({ active, setActive, children }: ModalProps) {
     const closeModal = () => {
         setActive('');
         document.body.classList.remove('lock');
     };
 
     useEffect(() => {
-        const closeModalEsc = (e) => {
+        const closeModalEsc = (e: KeyboardEvent) => {
             if (e.keyCode === 27) {
                 closeModal();
             }

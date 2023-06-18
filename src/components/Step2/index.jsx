@@ -7,7 +7,7 @@ import stylesInput from '../Input/Input.module.scss';
 
 import { Label } from '../Label';
 
-function Step2({ active, setActive }) {
+function Step2({ setActive }) {
     const forms = useSelector((state) => state.forms.forms);
     const dispatch = useDispatch();
 

@@ -10,7 +10,7 @@ import { addForm, fetchForms } from '../../store/formsSlice';
 import styles from './Step3.module.scss';
 import stylesInput from '../Input/Input.module.scss';
 
-function Step3({ active, setActive }) {
+function Step3({ setActive }) {
     const [activeModal, setActiveModal] = useState('');
 
     const navigate = useNavigate();

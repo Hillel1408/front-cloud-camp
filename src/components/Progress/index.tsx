@@ -1,7 +1,12 @@
 import classNames from 'classnames';
 import styles from './Progress.module.scss';
 
-function Progress({ count, active }) {
+interface ProgressProps {
+    count: number;
+    active: number;
+}
+
+function Progress({ count, active }: ProgressProps) {
     return (
         <div className={styles.block}>
             {new Array(count).fill('').map((item, index) => (
