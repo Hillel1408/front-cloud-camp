@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 
 export interface ModalProps {
     active: boolean;
-    setActive: any;
+    setActive: (value: string) => void;
     children: ReactNode;
 }
 
