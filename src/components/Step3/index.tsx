@@ -1,5 +1,3 @@
-import { useAppDispatch } from '../../hook';
-import { useAppSelector } from '../../hook';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
@@ -7,17 +5,11 @@ import classNames from 'classnames';
 import { Modal } from '../Modal';
 import { Label } from '../Label';
 import { Button } from '../Button';
+import { useAppSelector, useAppDispatch } from '../../hook';
 import { addForm, fetchForms, resetStore } from '../../store/formsSlice';
+import { Step3Props, FormValues } from './Step3.props';
 import styles from './Step3.module.scss';
 import stylesInput from '../Input/Input.module.scss';
-
-interface FormValues {
-    about: string;
-}
-
-interface Step3Props {
-    setActive: (value: number) => void;
-}
 
 function Step3({ setActive }: Step3Props) {
     const [activeModal, setActiveModal] = useState('');

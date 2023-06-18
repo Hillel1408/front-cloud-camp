@@ -1,10 +1,5 @@
-import type { ReactNode } from 'react';
+import { LabelProps } from './Label.props';
 import styles from './Label.module.scss';
-
-interface LabelProps {
-    width?: string;
-    children: ReactNode;
-}
 
 function Label({ children, width }: LabelProps) {
     return (

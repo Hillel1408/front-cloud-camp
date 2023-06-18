@@ -1,20 +1,5 @@
 import Select from 'react-select';
-
-interface ISelect {
-    value: string;
-    label: string;
-    id: string;
-}
-
-interface CustomSelectProps {
-    options: ISelect[];
-    placeholder: string;
-    value?: ISelect;
-    onChange: any;
-    id: string;
-    defaultValue?: ISelect;
-    getOptionLabel: any;
-}
+import { CustomSelectProps } from './CustomSelect.props';
 
 function CustomSelect(props: CustomSelectProps) {
     const customStyles = {

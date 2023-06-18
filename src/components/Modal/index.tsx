@@ -1,17 +1,7 @@
 import { useEffect } from 'react';
-import type { ReactNode } from 'react';
 import classNames from 'classnames';
+import { ModalProps, KeyboardEvent } from './Modal.props';
 import styles from './Modal.module.scss';
-
-interface ModalProps {
-    active: boolean;
-    setActive: any;
-    children: ReactNode;
-}
-
-interface KeyboardEvent {
-    keyCode: number;
-}
 
 function Modal({ active, setActive, children }: ModalProps) {
     const closeModal = () => {

@@ -1,22 +1,12 @@
-import { useAppDispatch } from '../../hook';
-import { useAppSelector } from '../../hook';
 import { useForm, useFieldArray } from 'react-hook-form';
+import { useAppDispatch, useAppSelector } from '../../hook';
 import { Button } from '../Button';
 import { addForm } from '../../store/formsSlice';
+import { Step2Props, FormValues } from './Step2.props';
 import styles from './Step2.module.scss';
 import stylesInput from '../Input/Input.module.scss';
 
 import { Label } from '../Label';
-
-interface Step2Props {
-    setActive: (value: number) => void;
-}
-
-interface FormValues {
-    radio: string;
-    checkbox: string[];
-    advantages: { name: string }[];
-}
 
 function Step2({ setActive }: Step2Props) {
     const forms = useAppSelector((state) => state.forms.forms);

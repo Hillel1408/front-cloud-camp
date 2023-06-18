@@ -1,10 +1,6 @@
 import classNames from 'classnames';
+import { ProgressProps } from './Progress.props';
 import styles from './Progress.module.scss';
-
-interface ProgressProps {
-    count: number;
-    active: number;
-}
 
 function Progress({ count, active }: ProgressProps) {
     return (

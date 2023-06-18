@@ -1,24 +1,13 @@
-import { useAppDispatch } from '../../hook';
-import { useAppSelector } from '../../hook';
 import { useForm, Controller } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../../hook';
 import { Label } from '../Label';
 import { Button } from '../Button';
 import { CustomSelect } from '../CustomSelect';
 import { addForm } from '../../store/formsSlice';
+import { Step1Props, FormValues } from './Step1.props';
 import stylesInput from '../Input/Input.module.scss';
 import styles from './Step1.module.scss';
-
-interface Step1Props {
-    setActive: (value: number) => void;
-}
-
-interface FormValues {
-    nickname: string;
-    name: string;
-    sername: string;
-    sex: string;
-}
 
 function Step1({ setActive }: Step1Props) {
     const forms = useAppSelector((state) => state.forms.forms);

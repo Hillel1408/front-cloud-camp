@@ -1,18 +1,13 @@
-import { useAppDispatch } from '../../hook';
-import { useAppSelector } from '../../hook';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { withHookFormMask } from 'use-mask-input';
 import { Button } from '../../components/Button';
 import { Label } from '../../components/Label';
 import { addForm } from '../../store/formsSlice';
+import { useAppSelector, useAppDispatch } from '../../hook';
+import { FormValues } from './Main.props';
 import styles from './Main.module.scss';
 import stylesInput from '../../components/Input/Input.module.scss';
-
-interface FormValues {
-    email: string;
-    tel: string;
-}
 
 function Main() {
     const forms = useAppSelector((state) => state.forms.forms);
