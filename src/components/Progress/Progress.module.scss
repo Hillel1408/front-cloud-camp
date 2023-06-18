@@ -25,9 +25,11 @@
             color: #666666;
             position: absolute;
             top: 22px;
+            transition: 0.3s ease-out 1.2s;
         }
         &Active {
             background-color: #5558fa;
+            transition: 0.3s ease-out 1.2s;
             i {
                 width: 3.2px;
                 height: 3.2px;
