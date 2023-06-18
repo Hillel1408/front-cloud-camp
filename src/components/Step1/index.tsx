@@ -45,6 +45,7 @@ function Step1({ setActive }: Step1Props) {
     });
 
     const onSubmit = (values: FormValues) => {
+        dispatch(addForm(values));
         setActive(2);
     };
 
