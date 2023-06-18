@@ -32,6 +32,7 @@ function Step1({ setActive }: Step1Props) {
         register,
         handleSubmit,
         control,
+        watch,
         formState: { errors },
     } = useForm({
         defaultValues: {
@@ -67,9 +68,6 @@ function Step1({ setActive }: Step1Props) {
                                 value: /^[A-zА-яЁё0-9]+$/,
                                 message: 'Только буквы и цифры',
                             },
-                            onChange: (e) => {
-                                dispatch(addForm({ nickname: e.target.value }));
-                            },
                         })}
                     />
                 </Label>
@@ -95,9 +93,6 @@ function Step1({ setActive }: Step1Props) {
                                 value: /^[A-zА-яЁё]+$/,
                                 message: 'Только буквы',
                             },
-                            onChange: (e) => {
-                                dispatch(addForm({ name: e.target.value }));
-                            },
                         })}
                     />
                 </Label>
@@ -121,9 +116,6 @@ function Step1({ setActive }: Step1Props) {
                                 value: /^[A-zА-яЁё]+$/,
                                 message: 'Только буквы',
                             },
-                            onChange: (e) => {
-                                dispatch(addForm({ sername: e.target.value }));
-                            },
                         })}
                     />
                 </Label>
@@ -144,7 +136,6 @@ function Step1({ setActive }: Step1Props) {
                                 value={options.find((c) => c.value === value)}
                                 onChange={(val: { value: string }) => {
                                     onChange(val.value);
-                                    dispatch(addForm({ sex: val.value }));
                                 }}
                                 id="field-sex"
                                 getOptionLabel={(props: {
@@ -168,6 +159,7 @@ function Step1({ setActive }: Step1Props) {
                     color="#5558FA"
                     id="button-back"
                     click={() => {
+                        dispatch(addForm(watch()));
                         navigate('/');
                     }}
                 />

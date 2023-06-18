@@ -62,11 +62,6 @@ function Step3({ setActive }: Step3Props) {
                                     value: 200,
                                     message: 'Максимум 200 символов',
                                 },
-                                onChange: (e) => {
-                                    dispatch(
-                                        addForm({ about: e.target.value })
-                                    );
-                                },
                             })}
                         />
                         <span className={styles.counter}>
@@ -84,6 +79,7 @@ function Step3({ setActive }: Step3Props) {
                         color="#5558FA"
                         id="button-back"
                         click={() => {
+                            dispatch(addForm(watch()));
                             setActive(2);
                         }}
                     />
