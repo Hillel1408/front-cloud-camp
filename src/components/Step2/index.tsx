@@ -11,6 +11,18 @@ function Step2({ setActive }: Step2Props) {
     const forms = useAppSelector((state) => state.forms.forms);
     const dispatch = useAppDispatch();
 
+    const checkbox = [
+        { id: 'field-checkbox-group-option-1', value: '1', text: '1' },
+        { id: 'field-checkbox-group-option-2', value: '2', text: '2' },
+        { id: 'field-checkbox-group-option-3', value: '3', text: '3' },
+    ];
+
+    const radio = [
+        { id: 'field-radio-group-option-1', value: '1', text: '1' },
+        { id: 'field-radio-group-option-2', value: '2', text: '2' },
+        { id: 'field-radio-group-option-3', value: '3', text: '3' },
+    ];
+
     const {
         register,
         handleSubmit,
@@ -89,63 +101,35 @@ function Step2({ setActive }: Step2Props) {
             </div>
             <div className={styles.formGroup}>
                 Checkbox group
-                <Label>
-                    <input
-                        id="field-checkbox-group-option-1"
-                        type="checkbox"
-                        value="1"
-                        {...register('checkbox')}
-                    />
-                    1
-                </Label>
-                <Label>
-                    <input
-                        id="field-checkbox-group-option-2"
-                        type="checkbox"
-                        value="2"
-                        {...register('checkbox')}
-                    />
-                    2
-                </Label>
-                <Label>
-                    <input
-                        id="field-checkbox-group-option-3"
-                        type="checkbox"
-                        value="3"
-                        {...register('checkbox')}
-                    />
-                    3
-                </Label>
+                {checkbox.map((item, index) => (
+                    <div key={index}>
+                        <Label>
+                            <input
+                                id={`field-checkbox-group-option-${item.id}`}
+                                type="checkbox"
+                                value={item.value}
+                                {...register('checkbox')}
+                            />
+                            {item.text}
+                        </Label>
+                    </div>
+                ))}
             </div>
             <div className={styles.formGroup}>
                 Radio group
-                <Label>
-                    <input
-                        id="field-radio-group-option-1"
-                        type="radio"
-                        value="1"
-                        {...register('radio')}
-                    />
-                    1
-                </Label>
-                <Label>
-                    <input
-                        id="field-radio-group-option-2"
-                        type="radio"
-                        value="2"
-                        {...register('radio')}
-                    />
-                    2
-                </Label>
-                <Label>
-                    <input
-                        id="field-radio-group-option-3"
-                        type="radio"
-                        value="3"
-                        {...register('radio')}
-                    />
-                    3
-                </Label>
+                {radio.map((item, index) => (
+                    <div key={index}>
+                        <Label>
+                            <input
+                                id={`field-radio-group-option-${item.id}`}
+                                type="radio"
+                                value={item.value}
+                                {...register('radio')}
+                            />
+                            {item.text}
+                        </Label>
+                    </div>
+                ))}
             </div>
             <div className="buttons">
                 <Button
