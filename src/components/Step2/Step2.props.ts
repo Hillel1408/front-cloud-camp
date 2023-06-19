@@ -4,6 +4,6 @@ export interface Step2Props {
 
 export interface FormValues {
     radio: string;
-    checkbox: string[];
+    checkbox: number[];
     advantages: { name: string }[];
 }

@@ -32,6 +32,7 @@ function Step2({ setActive }: Step2Props) {
     });
 
     const onSubmit = (values: FormValues) => {
+        values.checkbox = values.checkbox.map((i) => Number(i)); //делаем "массив number" так у нас по ТЗ
         dispatch(addForm(values));
         setActive(3);
     };
