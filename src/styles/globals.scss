@@ -15,7 +15,7 @@ body {
 .title {
     font-weight: 600;
     font-size: 20px;
-    line-height: 26 / 20 * 100%;
+    line-height: calc(26 / 20 * 100%);
     color: #333333;
     @media (max-width: 490px) {
         font-size: 16px;
