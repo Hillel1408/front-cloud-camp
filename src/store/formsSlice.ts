@@ -41,10 +41,11 @@ export const fetchForms = createAsyncThunk(
     'forms/fetchForms',
     async (params: typeof initialState.forms) => {
         try {
-            const { data } = await axios.post(
-                '/content/v1/bootcamp/frontend',
-                params
-            );
+            const { data } = await axios.post('/content/v1/bootcamp/frontend', {
+                ...params,
+                checkbox: params.checkbox.map((i) => Number(i)), //делаем "массив number" так у нас по ТЗ
+                advantages: params.advantages.map((i) => i.name), //и массив строк
+            });
             return data;
         } catch (e: any) {
             console.log(e.response?.data?.message);
