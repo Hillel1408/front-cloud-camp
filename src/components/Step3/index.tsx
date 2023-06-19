@@ -52,7 +52,7 @@ function Step3({ setActive }: Step3Props) {
                         <textarea
                             className={classNames(
                                 stylesInput.input,
-                                'textarea'
+                                styles.textarea
                             )}
                             placeholder="Placeholder"
                             id="field-about"
